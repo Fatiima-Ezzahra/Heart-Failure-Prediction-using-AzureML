@@ -1,0 +1,11 @@
+2021-01-28 16:09:06.367 - INFO - 5706 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
+2021-01-28 16:09:06.372 - INFO - 5706 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
+2021-01-28 16:09:06.385 - INFO - 5706 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetChildren
+2021-01-28 16:09:06.543 - INFO - 5706 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=158.3[ms]
+2021-01-28 16:09:06.543 - INFO - 5706 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=170.64[ms]
+2021-01-28 16:09:06.544 - INFO - 5706 - azureml.train.automl._model_download_utilities._log_activity:54 - ActivityStarted: DownloadModel
+2021-01-28 16:09:22.895 - INFO - 5706 - azureml.automl.runtime.distributed.utilities.horovod_initialized:58 - Horovod not found in current environment. Distribution via Horovod will be disabled.
+2021-01-28 16:09:26.260 - INFO - 5706 - azureml.automl.runtime.featurization.data_transformer.__init__:184 - Feature sweeping enabled: False
+2021-01-28 16:09:26.261 - INFO - 5706 - azureml.automl.runtime.featurization.data_transformer.__init__:185 - Feature sweeping timeout: 86400
+2021-01-28 16:09:28.189 - INFO - 5706 - azureml.train.automl._model_download_utilities._log_activity:92 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=21644.7[ms]
+2021-01-28 16:09:28.189 - INFO - 5706 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=21822.07[ms]
