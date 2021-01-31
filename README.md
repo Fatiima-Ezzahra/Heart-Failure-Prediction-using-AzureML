@@ -2,18 +2,14 @@
 
 ## Table of content
 * [Overview](#overview)
-* [Dataset](#dataset)
-  - [Overview](#overview)
-  - [Task](#task)
-  - [Access](#access)
-* [Automated ML](#automated-ml)
-  - [Results](#results)
-* [Hyperparameter Tuning](#hyperparameter-tuning)
-  - [Results](#results)
-* [Model Deployment](#model-deployment)
-* [Screen Recording](#screen-recording)
-* [Standout Suggestions](#standout-suggestions)
-
+* [Summary](#summary)
+* [Scikit-learn Pipeline](#scikit-learn-pipeline)
+  - [Benefits of the chosen Parameter Sampler](#benefits-of-the-chosen-parameter-sampler)
+  - [Benefits of the chosen early termination policy](#benefits-of-the-chosen-early-termination-policy)
+* [AutoML](#automl)
+* [Pipeline comparison](#pipeline-comparison)
+* [Future work](#future-work)
+* [Proof of cluster clean up](#proof-of-cluster-clean-up)
 
 ## Overview
 This project is part of the Udacity's Azure ML Nanodegree. In this project, we were asked to use a dataset of our choice to solve a Machine Learning problem using Azure ML. To do so, we need to train models using AutoML as well as Hyperdrive, then we choose the best model, deploy it and consume it.
@@ -47,7 +43,6 @@ The problem is to predict the value of the DEATH_EVENT target column. This is a 
 
 ### Access
 In Azure ML Studio, I registered the dataset from local files. I have the .csv file in my github repository and I downloaded it in the VM. For the train.py file I usef the link to my repo to create a Tabular Dataset.
-
 
 ## Automated ML
 For the Compute Target, I used a 'STANDARD_D2_V2' vm_size with max_nodes=4. For the AutoML Configuration, I used the following settings :
@@ -110,14 +105,6 @@ subsample_freq | 0
 **Improvements for autoML**
 
 To improve it, I could've disabled early stopping, increase **experiment_timeout_minutes**, get more data as this dataset only had 299 entries, and also choose another **primary_metric** such as AUC instead of Accuracy.
-
-*Figure 1-2: Run Details*
-![Run details autoML](images/rundetails-aml.png)
-
-![Run details autoML](images/rundetails-aml2.png)
-
-*Figure 3: Best Model*
-![Best Model](images/bestmodel-aml.png)
 
 ## Hyperparameter Tuning
 For Hyperparameter Tuning, I used the Logistric Regression algorithm from the SKLearn framework. There are two hyperparamters for this experiment:
@@ -196,37 +183,14 @@ To consume the endpoint, I selected sample data from the dataframe, converted it
 
 The output I got was in this format : `{"result": [1, 0, 1, 1, 0, 1, 0, 0, 0, 0]}`
 
-*Figure 4-5-6: Run Details*
-![Run details HyperDrive](images/rundetails-hdr.png)
-
-![Run details HyperDrive](images/rundetails-hdr2.png)
-
-![Run details HyperDrive](images/rundetails-hdr3.png)
-
-
-*Figure 7: Best Model*
-![Best Model](images/bestmodel-hdr.png)
-
 ## Model Deployment
 Based on the previous results, I chose the **Voting Ensemble** model as it has the best Accuracy out of the two. To successfully deploy the model, we must have an **InferenceConfig** and an **ACI Config**.
 
-*Figure 8-9-10: Endpoint
-![Endpoint](images/endpoint.png)
-
-![Endpoint](images/endpoint2.png)
-
-![Endpoint](images/endpoint3.png)
-
-*Figure 11-12: Application Insights
-![Application Insights](images/appinsights.png)
-
-![Application Insights](images/appinsights2.png)
-
-
 ## Screen Recording
-[Youtube Link]()
-[Subtitles]()
-
+The screencast should demonstrate:
+- A working model
+- Demo of the deployed  model
+- Demo of a sample request sent to the endpoint and its response
 
 ## Standout Suggestions
 To improve this project in future, I can make the following improvements:
