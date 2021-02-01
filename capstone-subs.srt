@@ -1,0 +1,167 @@
+1
+00:00:01,300 --> 00:00:03,689
+This project is a part of Azure
+Machine Learning Engineer
+Nanodegree at Udacity.
+
+2
+00:00:06,500 --> 00:00:11,299
+The dataset I used is the heart
+failure dataset from Kaggle.
+
+3
+00:00:17,900 --> 00:00:24,289
+It contains 12 features and the
+death_event target column
+
+
+4
+00:00:30,300 --> 00:00:31,299
+To run the notebooks, I used
+a compute instance with 
+STANDARD_DS12_V2 size
+
+5
+00:00:32,200 --> 00:00:34,199
+and a STANDARD_D2_V2 compute
+cluster for the experiments.
+
+6
+00:00:35,400 --> 00:00:46,699
+Then, I went through the automl
+notebook to find the best model
+for our problem
+
+7
+00:00:48,300 --> 00:00:55,199
+For the autumn config, I chose
+15 minutes for experiment timeout,
+40 iterations with a maximum of 4
+concurrent iterations
+
+8
+00:00:56,100 --> 00:00:58,799
+I chose accuracy to be the primary
+metric, and used a 3 fold cross
+validation
+
+9
+00:00:59,200 --> 00:01:03,799
+Then, I submitted the experiment,
+and waited for it to complete
+
+10
+00:01:04,600 --> 00:01:06,689
+Here are some of the trained models
+
+11
+00:01:07,700 --> 00:01:09,099
+Our best model is a VotingEnsemble
+
+12
+00:01:11,000 --> 00:01:20,899
+We can see the run in Azure ML
+Studio 
+
+13
+00:01:30,200 --> 00:01:37,299
+We can see the best model and
+the highest accuracy which is
+0.85953 
+
+14
+00:01:39,200 --> 00:01:49,299
+We can look at other metrics
+in the metrics tab.
+
+15
+00:02:00,700 --> 00:02:20,489
+For the second task, I went
+through the hyperparameter
+tuning notebook to train a model
+using HyperDrive
+
+16
+00:02:24,500 --> 00:02:28,599
+I created an early termination
+policy using Banditpolicy
+
+17
+00:02:29,900 --> 00:02:30,099
+I used Random Sampling to optimize
+max_tier and C
+
+18
+00:02:31,800 --> 00:02:32,599
+I used an SKLearn estimator 
+using train.py
+
+19
+00:02:36,600 --> 00:02:50,099
+In train.py I create a tabular 
+dataset from the data in my repo
+and train a Logistic Regression
+model
+
+20
+00:03:00,500 --> 00:03:15,299
+I run the experiment
+
+21
+00:03:16,100 --> 00:03:26,699
+In Azure Studio, I can see the
+best run which has an accuracy
+of 0.788888
+
+22
+00:03:30,300 --> 00:03:45,099
+In the notebook, I retrieve 
+the best model and its best
+metrics
+
+23
+00:03:46,400 --> 00:03:50,899
+and then, I save it.
+
+24
+00:03:52,800 --> 00:03:57,399
+I will deploy the autumn model
+since it has the highest accuracy
+
+25
+00:04:10,800 --> 00:04:12,499
+First, I save the model
+
+26
+00:04:21,800 --> 00:04:24,499
+I define the environment,
+download the scoring file and 
+define an Inference Config
+
+27
+00:04:30,300 --> 00:04:35,099
+I deploy the model using ACI
+enabling authentication and
+app insights
+
+28
+00:04:38,600 --> 00:04:41,699
+We can find the endpoint in
+Azure ML Studio
+
+29
+00:04:50,100 --> 00:04:55,899
+We can see the application insights
+
+30
+00:05:10,500 --> 00:05:20,999
+We can consume the endpoint by
+sending requests using sample
+data from the dataframe, we can
+then get predictions from
+the trained model
+
+31
+00:05:23,300 --> 00:05:24,299
+At the end, we should delete the
+web service and the compute target. 
