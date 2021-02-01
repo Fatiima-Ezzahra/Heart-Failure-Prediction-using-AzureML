@@ -10,7 +10,7 @@
 * [Automated ML](#automated-ml)
   - [Results](#results)
 * [Hyperparameter Tuning](#hyperparameter-tuning)
-  - [Results](#results)
+  - [Results](#results-1)
 * [Model Deployment](#model-deployment)
 * [Screen Recording](#screen-recording)
 * [Standout Suggestions](#standout-suggestions)
