@@ -8,25 +8,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
-from azureml.core import Workspace
+from azureml.data.dataset_factory import TabularDatasetFactory
 
+dataset_path = "https://raw.githubusercontent.com/Fatiima-Ezzahra/nd00333-capstone/master/heart_failure_clinical_records_dataset.csv"
 
-ws = Workspace.from_config()
+ds = TabularDatasetFactory.from_delimited_files(path=dataset_path)
 
-key = "heart-failure"
-
-dataset = ws.datasets[key]
-
-x_df = dataset.to_pandas_dataframe()
-
-
-#Save model for current iteration
+x_df = ds.to_pandas_dataframe().dropna()
 
 run = Run.get_context()
-  
-y_df = x_df.pop("DEATH_EVENT")
 
-# TODO: Split data into train and test sets.
+y_df = x_df.pop("DEATH_EVENT")
 
 x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.3, random_state=123)
 
