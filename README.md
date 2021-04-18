@@ -227,7 +227,7 @@ Based on the previous results, I chose the **Voting Ensemble** model as it has t
 
 ## Screen Recording
 [Youtube Link](https://youtu.be/8R_YweUaNl4)
-[Subtitles](https://drive.google.com/file/d/1pEK-v4HG2a6M5OeCsXa7OOlUkSvdF6x3/view?usp=sharing)
+<!--[Subtitles](https://drive.google.com/file/d/1pEK-v4HG2a6M5OeCsXa7OOlUkSvdF6x3/view?usp=sharing)-->
 
 
 ## Standout Suggestions
